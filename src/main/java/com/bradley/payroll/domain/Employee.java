@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -31,12 +32,18 @@ public class Employee implements Serializable {
     @Embedded
     private Contact contact;
     @Embedded
-    private Names names;
+    private Names employeeNames;
     @Embedded
     private Demographics demographics;
     @OneToMany
     @JoinColumn(name="EmployeeID")
     private List<PaySlip> paySlipList;
+    @OneToMany
+    @JoinColumn(name="EmployeeID")
+    private List<IdentityDocument> identityList;
+    @OneToOne
+    @JoinColumn(name="EmployeeID")
+    private Position position;
 
     public Long getId() {
         return id;
@@ -62,6 +69,62 @@ public class Employee implements Serializable {
         this.employeeNumber = employeeNumber;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
+
+    public Names getEmployeeNames() {
+        return employeeNames;
+    }
+
+    public void setEmployeeNames(Names employeeNames) {
+        this.employeeNames = employeeNames;
+    }
+
+    public Demographics getDemographics() {
+        return demographics;
+    }
+
+    public void setDemographics(Demographics demographics) {
+        this.demographics = demographics;
+    }
+
+    public List<PaySlip> getPaySlipList() {
+        return paySlipList;
+    }
+
+    public void setPaySlipList(List<PaySlip> paySlipList) {
+        this.paySlipList = paySlipList;
+    }
+
+    public List<IdentityDocument> getIdentityList() {
+        return identityList;
+    }
+
+    public void setIdentityList(List<IdentityDocument> identityList) {
+        this.identityList = identityList;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;

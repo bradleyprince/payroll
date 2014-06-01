@@ -32,6 +32,9 @@ public class Position implements Serializable {
     @OneToMany
     @JoinColumn(name="positionID")
     private List<Benefits> benefitsList;
+    @OneToMany
+    @JoinColumn(name="positionID")
+    private List<Deductions> deductionsList;
 
     public Long getId() {
         return id;
@@ -63,6 +66,22 @@ public class Position implements Serializable {
 
     public void setSalary(Salary salary) {
         this.salary = salary;
+    }
+
+    public List<Benefits> getBenefitsList() {
+        return benefitsList;
+    }
+
+    public void setBenefitsList(List<Benefits> benefitsList) {
+        this.benefitsList = benefitsList;
+    }
+
+    public List<Deductions> getDeductionsList() {
+        return deductionsList;
+    }
+
+    public void setDeductionsList(List<Deductions> deductionsList) {
+        this.deductionsList = deductionsList;
     }
     
     @Override
