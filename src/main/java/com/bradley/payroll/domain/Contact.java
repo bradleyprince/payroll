@@ -30,5 +30,10 @@ public class Contact implements Serializable{
 
     public void setHomeNumber(String homeNumber) {
         this.homeNumber = homeNumber;
-    }  
+    }
+    
+    @Override
+    public String toString(){
+        return "Cell Number = " + this.cellNumber + "\nHome Number = " + this.homeNumber; 
+    }
 }

@@ -39,5 +39,10 @@ public class Address implements Serializable{
 
     public void setPostalCode(int postalCode) {
         this.postalCode = postalCode;
-    }  
+    }
+    
+    @Override
+    public String toString(){
+        return "Physical Address = " + this.physicalAddress + "\nPostal Address = " + this.postalAddress + "\nPostal Code = " + this.postalCode;
+    }
 }

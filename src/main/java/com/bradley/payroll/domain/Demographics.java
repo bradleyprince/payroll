@@ -31,4 +31,9 @@ public class Demographics implements Serializable{
     public void setRace(String race) {
         this.race = race;
     } 
+    
+    @Override
+    public String toString(){
+        return "Gender = " + this.gender + "\nRace = " + this.race; 
+    }
 }

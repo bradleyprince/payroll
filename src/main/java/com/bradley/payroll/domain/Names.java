@@ -31,4 +31,9 @@ public class Names implements Serializable{
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+    
+    @Override
+    public String toString(){
+        return "First Name = " + this.firstName + "\nLast Name = " + this.lastName;
+    }
 }

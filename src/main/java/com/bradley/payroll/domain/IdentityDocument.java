@@ -69,7 +69,7 @@ public class IdentityDocument implements Serializable {
 
     @Override
     public String toString() {
-        return "com.bradley.payroll.domain.Identity[ id=" + id + " ]";
+        return "ID Type = " + this.idType + "\nID Value = " + this.idValue;
     }
     
 }

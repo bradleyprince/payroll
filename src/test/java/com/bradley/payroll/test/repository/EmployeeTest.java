@@ -78,10 +78,15 @@ public class EmployeeTest {
         
         List<IdentityDocument> identityList = new LinkedList<>();
         IdentityDocument identity = IdentityFactory.getIdDocument();
+        IdentityDocument identity2 = new IdentityDocument();
         
         identity.setIdType("Passport");
         identity.setIdValue("ZG1234");
         identityList.add(identity);
+        
+        identity2.setIdType("ID");
+        identity2.setIdValue("ZG4534");
+        identityList.add(identity2);
         
         List<PaySlip> payslipList = new LinkedList<>();
         PaySlip paySlip = new PaySlip();
@@ -114,8 +119,11 @@ public class EmployeeTest {
         
         id = employee.getId();
         
+        for(IdentityDocument document : identityList){
+            idRepo.save(document);
+        }
+        
         paySlipRepo.save(paySlip);
-        idRepo.save(identity);
         employeeRepo.save(employee);
         
         Assert.assertNotNull(employee);
@@ -136,8 +144,8 @@ public class EmployeeTest {
 
     @AfterMethod
     public void tearDownMethod() throws Exception {
-        employeeRepo.deleteAll();
+        //employeeRepo.deleteAll();
         paySlipRepo.deleteAll();
-        idRepo.deleteAll();
+        //idRepo.deleteAll();
     }
 }
