@@ -7,6 +7,7 @@ package com.bradley.payroll.domain;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +25,7 @@ public class Job implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String jobTitle;
-    @OneToMany
+    @OneToMany(fetch= FetchType.EAGER)
     @JoinColumn(name="jobID")
     private List<Position> positionList;
 
